@@ -1,0 +1,33 @@
+{
+  "name": "@pai-tech/relay-control",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "module-generator": "node src/pai-module/scripts/module-generator.js",
+    "generate-docs": "pwd && jsdoc -c jsdoc-config.json --verbose",
+    "bot": "node node_modules/@pai-tech/pai-bot/PAI.js",
+    "bot-local": "node PAI.js",
+    "config": "node node_modules/@pai-tech/pai-bot/src/scripts/config-generator.js",
+    "pai-net": "node node_modules/@pai-tech/pai-bot/src/scripts/config-pai-net.js"
+  },
+  "keywords": [
+    "PAI-CODE",
+    "PAI-TECH"
+  ],
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@pai-tech/pai-bot": "^2.0.3",
+    "@pai-tech/pai-code": "^2.0.0",
+    "@pai-tech/pai-ddb": "^1.2.0",
+    "@pai-tech/pai-os": "^1.0.92",
+    "express": "^4.17.3",
+    "inquirer": "^8.2.1",
+    "onoff": "^6.0.3"
+  },
+  "PAI": {
+    "includeFiles": [
+      "./PAI.js"
+    ]
+  }
+}

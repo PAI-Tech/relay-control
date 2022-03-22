@@ -1,0 +1,54 @@
+{
+  "id": "0ce34e92-683b-4c2c-848a-3954c29d47b5",
+  "name": "Module Home Page",
+  "import": [
+    "pai-desktop",
+    "pai-page-header",
+    "pai-page"
+  ],
+  "metadata": {
+    "page-title": "PAI-BOT-MODULE",
+    "keywords": "PAI-BOT-OS",
+    "author": "PAI-BOT",
+    "description": "PAI-BOT-OS",
+    "icon": "public/images/pai/pai-bot.png"
+  },
+  "content": {
+    "pai-desktop": {
+      "pai-page-header": {
+        "id": "main-page-header",
+        "logo": "public/images/pai/pai-bot.png",
+        "title": "PAI-BOT Module",
+        "buttons": [
+          {
+            "name": "home",
+            "title": "Home",
+            "icon": "public/images/icons/home.png",
+            "status": "selected",
+            "onclick": "pai_go_home()",
+            "anim": "fade-in"
+          }
+        ],
+        "menu": [
+          {"title": "Settings", "onclick": "pai_settings()"}
+        ]
+      },
+      "pai-page": {
+        "page-title" : {
+          "pai-ui-object" : "pai-page-title",
+          "css-class" : "",
+          "style" : "",
+          "title" : "Lets build this page"
+        },
+        "name-input" : {
+          "pai-ui-object" : "pai-input-field",
+          "css-class" : "",
+          "style" : "",
+          "placeholder" : "Enter your name here",
+          "id" : "name-input",
+          "label" : "your name"
+        }
+      }
+    }
+  }
+}

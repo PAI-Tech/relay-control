@@ -1,0 +1,9 @@
+{
+  "name": "sample-entity",
+  "fields": [
+    {"name": "last-name","type": "string", "required": true},
+    {"name": "first-name","type": "string", "required": true}
+  ]
+}
+
+

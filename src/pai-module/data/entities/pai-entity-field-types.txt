@@ -1,0 +1,59 @@
+
+
+	/**
+	 * Name of the field - must be unique across entity
+	 */
+	name: null,
+
+	/**
+	 * reference to other entity - Foreign Key
+	 */
+	reference: undefined,
+
+	/**
+	 *  possible values: string, number, array, object, date, objectId, boolean
+	 */
+	type: "string",
+
+	/**
+	 * Default value for field - this value will be used when CREATING an entity and the value of the field is null
+	 */
+	default: undefined,
+
+	/**
+	 * Should this field index ? for better search results
+	 */
+	index: false,
+
+	/**
+	 * Allow or Deny duplicate values across this field
+	 */
+	unique: false,
+
+	/**
+	 * Allow or Deny this field from being update
+	 */
+	allowUpdate: true,
+
+	/**
+	 * Allow null's for this field ? or require a value
+	 */
+	required: false,
+
+	/**
+	 * Convert any data in this field to lowercase.
+	 * This works only for strings
+	 */
+	lowerCase: false,
+
+	/**
+	 * Convert any data in this field to uppercase.
+	 * This works only for strings
+	 */
+	upperCase: false,
+
+	/**
+	 * Trim any data in this field.
+	 * This works only for strings
+	 */
+	trim: false,

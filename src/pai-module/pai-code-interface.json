@@ -1,0 +1,81 @@
+{
+  "pai-code-version":"2.0",
+  "pai-module-name":"relay-control",
+  "pai-module-desc":"relay-control",
+  "pai-module-settings":["module-name"],
+  "required-modules":[],
+  "pai-code-commands":[
+    {"command-name":"version", "js-function":"version"},
+    {"command-name":"ws-message", "js-function":"handle_ws_message",
+      "params" : [
+        {"name":"ws", "label":"web-socket", "description":"WebSocket object", "required":true},
+        {"name":"msg", "label":"message", "description":"message from socket", "required":true}
+      ]
+    }, 
+    {"command-name":"ws-close", "js-function":"handle_ws_close",
+      "params" : [
+        {"name":"wsid", "label":"web-socket-id", "description":"WebSocket ID", "required":true}
+      ]
+    },
+    {"command-name":"ws-open", "js-function":"handle_ws_open",
+      "params" : [
+        {"name":"ws", "label":"web-socket", "description":"WebSocket object", "required":true}
+      ]
+    },
+    {"command-name":"handle-event", "js-function":"handle_event",
+      "params" : [
+        {"name":"event", "label":"pai-code event", "description":"pai-code event", "required":true}
+      ]
+    }, 
+    {"command-name":"subscribe-client", "js-function":"subscribe_client",
+      "params" : [
+        {"name":"event", "label":"pai-code event", "description":"pai-code event", "required":true},
+        {"name":"wsid", "label":"websocket-id", "description":"", "required":true}
+      ]
+    }, 
+    {"command-name":"release-notes", "js-function":"get_release_notes"},
+    {"command-name":"on", "js-function":"relay_on"},
+    {"command-name":"off", "js-function":"relay_off"}
+  ],
+  "pai-entities" : {
+    "define" : [
+      
+  ]
+  }
+  ,
+  "pai-ddb" : {
+    "db-name" : "pai-module-db",
+    "data-security" : "plain-text"
+  },
+  "pai-bot-web-interface": {
+    "static-web-folders": ["public", "packages"],
+    "web-services":[
+      {"service-name":"home","js-function":"get_home","method": "GET"},
+      {"service-name":"login","js-function":"login","method": "GET"}
+    ]
+  },
+  "#pai-web-server": {
+    "config": {
+      "http": {
+        "port" : 80
+      },
+      "https":{
+        "port" : 443,
+        "ssl-files" : [],
+        "force-https" :false
+      },
+      "base-folder" : "$bot-folder/web/"
+    },
+    "static-web-folders": ["public", "packages"],
+    "web-services":[
+      {"service-name":"_home","js-function":"get_home"}
+    ],
+    "web-pages": [
+      {"page-name": "home","file" :"home-page.json"}
+    ]
+  }
+}
+
+
+
+

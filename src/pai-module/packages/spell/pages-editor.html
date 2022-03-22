@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI-TECH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core@0.1.1/dist/animxyz.min.css">
+    <script src="packages/spell/spell.js"></script>
+    <script src="packages/spell/spell-extended.js"></script>
+    <script src="packages/spell/pai-web-bot.js"></script>
+
+    <link href="/public/images/pai/pai-bot-fav-icon.png" rel="icon"  />
+    <meta name="keywords" content="PAI-TECH, BOT, OPERATING, SYSTEM">
+    <meta name="author" content="EVE - PAI-DEV-BOT">
+    <meta name="generator" content="PAI-BOT" />
+    <meta content="PAI-TECH" name="title">
+    <meta content="BOT OPERATING SYSTEM" name="description">
+    <meta content="PAI-TECH.ORG" property="og:site_name">
+    <meta content="PAI-TECH | BOTS | BOT Operating System" property="og:title">
+    <meta content="/public/images/pai/pai-bot-fav-icon.png" property="og:image">
+    <meta content="BOT OPERATING SYSTEM" property="og:description">
+    <link rel="stylesheet" href="/public/style/pai-web.css">
+</head>
+<body class="bg-dark" style=''>
+<div id="spell-data" >
+
+    <div>
+        <a href="https://developers.pai-tech.org">Blog</a>
+        <a href="https://developers.pai-tech.org/knowledge-base">Developers</a>
+    </div>
+</div>
+<div id="pai-desktop" >
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" style="color:#afafaf;">PAI-TECH</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="javascript:show_view('about-view')">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="javascript:show_view('contact-view')">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="https://developers.pai-tech.org/knowledge-base">Developers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="https://developers.pai-tech.org">Blog</a>
+                        </li>
+                        <!--li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="main-container" style="width: 100%;padding: 0;margin: 0">
+        <div id="pai-view-1"></div>
+    </div>
+    <!--footer id="pai-footer" style="" class="xyz-in"  xyz="fade delay2" >
+        <div style="margin-top:5px;text-align: center">PAI-TECH - MAKING COMPUTER SMARTER</div>
+    </footer-->
+</div>
+
+</body>
+<script language="JavaScript">
+
+
+
+    let pai_web_pages_str = "$pai-web-page";
+    let pron = {
+        "-": " ",
+        "pai" : "pi",
+        "netbot": "net bot",
+        "iot": "I.O.T",
+    }
+
+    $(document).ready( function () {
+            //start_flow();
+            Spell.init();
+            $("#spell-data").hide();
+
+        let pgs_grid = {
+            _id:"pages-grid" ,
+            _type:"grid",
+            class:"container-fluid ",
+            style:"margin-top: 50px",
+            rows: [
+
+            ]
+        }
+
+        let entity_grid = {
+            _id:"entity-grid" ,
+            _type:"grid",
+            class:"container-fluid ",
+            style:"margin-top: 50px",
+            rows: [
+
+            ]
+        }
+
+        let pai_pages = null;
+        let entity_to_show = {};
+
+            if(pai_web_pages_str != "$pai-web-page") {
+                //console.log(JSON.stringify(pai_web_pages_str));
+                pai_pages = JSON.parse(pai_web_pages_str);
+                //console.log(JSON.stringify(pai_pages.meta.schema.fields.buttons))
+                let fields = Object.keys(pai_pages.meta.schema.fields);
+                fields.forEach( field => {
+                    let pid = "field-" + field;
+                    let fschema = pai_pages.meta.schema.fields[field]["__field_schema"]
+
+                    console.log("field name " + fschema.name + " type:" + fschema.type)
+                    let field_data = pai_pages.data[0][fschema.name]
+                    if(fschema.type == "array") {
+                        field_data = JSON.stringify(field_data);
+                    }
+                    let row =  {
+                        _id:pid,
+                        cols: [
+                            {
+                                _id:pid ,
+                                _type:"label",
+                                class:"col-sm-2",
+                                style:"",
+                                text:fschema.name
+                            },
+                            {
+                                _id:pid + "sdo" ,
+                                type:"text",
+                                class:"col-sm",
+                                style:"background-color:green",
+                                text:field_data
+                            }
+                        ]
+                    }
+                    entity_grid.rows.push(row);
+                });
+
+               //console.log(pai_pages);
+
+
+            }
+
+            vuz = {
+            "main-view": {
+                _type : "view",
+                _id: "main-view" ,
+                style: "width:100%;margin: 0;padding:0",
+                "class":"container-fluid xyz-in",
+                animation:"fade",
+                spells: [
+                    {
+                        _type : "label",
+                        text:"Pages",
+                        class:"xyz-in",
+                        "animation":"fade flip-right delay-5",
+                        style: "margin:50px 15px;width: 100%;text-align: center;font-size:30px;letter-spacing: 20px"
+                    },
+                    pgs_grid
+
+                ]
+            },
+            "entity-viewer": {
+                _type : "view",
+                _id: "pai-entity-view" ,
+                style: "width:100%;margin: 0;padding:0",
+                "class":"container-fluid xyz-in",
+                animation:"fade",
+                spells: [
+                    {
+                        _type : "label",
+                        text:"PAI Entity Viewer",
+                        class:"xyz-in",
+                        "animation":"fade flip-right delay-5",
+                        style: "margin:50px 15px;width: 100%;text-align: center;font-size:30px;letter-spacing: 20px"
+                    },
+                    entity_grid
+
+                ]
+            }
+
+        }
+
+
+
+
+
+
+            let view_to_show = "entity-viewer";
+            let anc = $(location).attr('hash');
+            if(anc && anc.length>1) {
+                view_to_show = anc.substring(1);
+            }
+
+            show_view(view_to_show)
+            $('.navbar-nav>li>a').on('click', function(){
+                $('.navbar-collapse').collapse('hide');
+            });
+        spell_start();
+        }
+    )
+
+    let active_view = "pai-view-1";
+    let vuz = null;
+    let pai_web_bot = null;
+
+    let colors=["rgba(255,255,255,0.2)","rgba(255,255,255,0.4)","rgba(255,255,255,0.6)","rgba(255,255,255,0.8)"]
+    let cidx = 0;
+    let spk_icon =  null;
+
+    function on_speech_interval(event) {
+        //console.log(event.name + ' boundary reached after ' + event.elapsedTime + ' milliseconds.');
+        let bgcolor = colors[cidx];
+        if(++cidx >= colors.length)
+            cidx = 0;
+        spk_icon.css('background-color',bgcolor)
+    }
+
+    function on_speech_end(event) {
+        spk_icon.css('background-color',"rgba(0,0,0,0)");
+    }
+
+    async function bot_speak(elem_to_speak) {
+
+        //console.log(elem_to_speak)
+        spk_icon = $("#"+elem_to_speak + "-bot");
+
+
+        let txt = "";
+        $("#" + elem_to_speak).find(".speak").each(function() {
+
+            let l_txt_u = $(this).text();
+            pai_web_bot.speech.speak(l_txt_u,on_speech_interval,on_speech_end);
+        });
+    }
+
+
+    function spell_start() {
+        //let spell_program = `spell-player load spell:'${JSON.stringify(vuz)}'`;
+
+        //Spell.play(spell_program);
+        pai_web_bot = new PAIWebBot();
+        pai_web_bot.load_speech_abilities("Samantha");
+        pai_web_bot.speech.set_pron(pron);
+        //pai_web_bot.speech.set_voice_by_name();
+
+
+
+    }
+
+    function open_url(url, target = null)
+    {
+        if(!target)
+        {
+            document.location = url;
+        }
+        else
+        {
+            window.open(url);
+        }
+
+    }
+
+
+
+
+    function show_view(view_name)
+    {
+        let vu = "",new_view;
+
+        let oncreate = false;
+        if(Spell.view_manager.has_view(view_name))
+        {
+            new_view = Spell.view_manager.get_view(view_name);
+        }
+        else {
+            vu = vuz[view_name];
+            vu.name = view_name;
+            new_view = Spell.view_manager.create_view(vu) //create_view(vu);
+            oncreate = true;
+            //Spell.view_manager.add_view(new_view,view_name);
+            $("#main-container").append(new_view.get_html());
+        }
+
+
+
+        let v_active = $("#" + active_view);
+        v_active.toggleClass("xyz-in xyz-out");
+        let v_new = $("#" + view_name);
+
+        if(v_new.hasClass("xyz-out")) {
+            v_new.toggleClass("xyz-out xyz-in");
+        }
+
+
+
+        setTimeout(function () {
+            v_active.hide();
+            v_new.show();
+            active_view = view_name;
+            if(oncreate)
+            {
+                eval(new_view.oncreate);
+            }
+            open_url("#" + active_view);
+        }, 1000);
+
+
+    }
+
+    function create_view(vdata) {
+        let spellview = Spell.create(vdata);
+        return spellview;
+    }
+
+    function play_video()
+    {
+        let pai_player = document.getElementById("pai-tv-player");
+        pai_player.src = "https://pai-cdn.pai-net.org/pai-cdn/get-file?cdn-key=f24e2974-a2bc-4471-9ae0-bc273dab3a8c";
+        pai_player.load();
+    }
+
+    function start_flow()
+    {
+        setTimeout(move_up,2000)
+    }
+
+    function move_up() {
+        let bot_logo_img = document.getElementById("bots-logo");
+        bot_logo_img.style.height = "120px";
+        bot_logo_img.style["margin-left"] = "calc(50% - 70px)";
+        let b_pack = document.getElementById("buttons-pack");
+        b_pack.style.display ="block";
+        b_pack.className += " xyz-in";
+    }
+
+
+    function get_attr(obj,attr)
+    {
+        let out = "";
+        if(obj.hasOwnProperty(attr)) {
+            out = attr + "=`" + obj[attr] + "`";
+        }
+        return out;
+    }
+
+    function create_pai_view(vdata)
+    {
+        let out = "<div " + get_attr(vdata,"style") + " >";
+        out += "</div>";
+        return out;
+    }
+
+</script>
+
+
+</html>

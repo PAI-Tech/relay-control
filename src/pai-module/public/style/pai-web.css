@@ -1,0 +1,165 @@
+:root {
+    --text-color:#afafaf;
+}
+
+html{
+    height:100%;
+}
+
+body {
+    height: 100%;
+    color:var(--text-color);
+    padding:0;
+    margin:0;
+    font-family: Quicksand, sans-serif
+}
+
+a:hover {
+    color:var(--text-color);
+    text-decoration: underline;
+}
+
+a  {
+    color:var(--text-color);
+    text-decoration: none;
+}
+
+.pai-link  {
+    color:var(--text-color);
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.pai-view {
+    margin: 0; padding: 0;
+}
+
+.pai-link:hover {
+    color:var(--text-color);
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+.pai-table {
+    width:100%;
+    border:solid 1px var(--text-color);
+    padding:5px;
+}
+
+#spell-data {
+    color: #212529;
+}
+
+
+.bots-logo {
+    height:250px;
+    margin-left:calc(50% - 170px);
+    transition:1s;
+    -webkit-transition:1s;
+    -moz-transition:1s;
+}
+
+.aime-sketch {
+    height:240px;
+    margin-left:calc(50% - 120px);
+    transition:1s;
+    -webkit-transition:1s;
+    -moz-transition:1s;
+}
+
+.pai-panel-item
+{
+    margin: 10px;
+    padding:5px;
+}
+
+.pai-grid-row {
+    margin-top:20px;
+}
+
+.pai-button
+{
+    /*border:2px #4E2D64 solid;*/
+    border:2px var(--text-color) solid;
+    border-radius:5px;
+    background-color: transparent;
+    margin-left: calc(50% - 60px);
+    padding: 5px;
+    min-width: 120px;
+    color:var(--text-color);
+
+}
+
+.pai-circle-button
+{
+    /*border:2px #4E2D64 solid;*/
+    border:2px var(--text-color) solid;
+    border-radius:50%;
+    background-color: transparent;
+    margin-left: calc(50% - 50px);
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    color:var(--text-color);
+}
+
+#pai-desktop {
+    margin: 0;padding: 0;width:100%;height:100%;
+}
+#pai-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:5%;
+    font-size: 14px;
+}
+
+
+.spell-air-cursor {
+    position: absolute;
+    width:2vw;
+    height:2vh;
+    top:2vh;
+    left:2vw
+}
+
+
+@media screen and (min-width: 601px) {
+    .page-title {
+        width: 100%;
+        text-align: center;
+        font-size:5vw;
+        padding-left:20px;padding-right:20px;
+    }
+    
+    .page-subtitle {
+        width: 100%;
+        text-align: center;
+        font-size:2vw;
+        padding-left:20px;padding-right:20px;
+    }
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    .page-title {
+        width: 100%;
+        text-align: center;
+        font-size:10vw;
+        padding-left:20px;padding-right:20px;
+    }
+    
+    .page-subtitle {
+        width: 100%;
+        text-align: center;
+        font-size:5vw;
+        padding-left:20px;padding-right:20px;
+    }
+  }
+
+.anim_air_click {
+  --xyz-duration: 0.6s;
+  --xyz-scale-x: 1.25;
+  --xyz-scale-y: 0;
+}

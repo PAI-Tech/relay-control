@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI-TECH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core@0.1.1/dist/animxyz.min.css">
+    <script src="packages/spell/spell.js"></script>
+    <script src="packages/spell/pai-web-bot.js"></script>
+
+    <link href="public/images/pai/pai-bot-fav-icon.png" rel="icon"  />
+    <meta name="keywords" content="PAI-TECH, BOT, OPERATING, SYSTEM">
+    <meta name="author" content="EVE - PAI-DEV-BOT">
+    <meta name="generator" content="PAI-BOT" />
+    <meta content="PAI-TECH" name="title">
+    <meta content="BOT OPERATING SYSTEM" name="description">
+    <meta content="PAI-TECH.ORG" property="og:site_name">
+    <meta content="PAI-TECH | BOTS | BOT Operating System" property="og:title">
+    <meta content="/public/images/pai/pai-bot-fav-icon.png" property="og:image">
+    <meta content="BOT OPERATING SYSTEM" property="og:description">
+    <link rel="stylesheet" href="public/style/pai-web.css">
+</head>
+<body class="bg-dark" style=''>
+<div id="spell-data" style='display: none;' >
+</div>
+<div id="pai-desktop" >
+    <div id="spell-player" style="width: 100%;padding: 0;margin: 0">
+    </div>
+</div>
+
+</body>
+<script language="JavaScript">
+
+
+
+    //static data that was sent from the server when the page was loaded
+    const spell_data_from_server = "$spell_data_from_server";
+    
+    const spell_app = {
+        spell:{
+            version:1
+        },
+        views:{        
+            "main-view": {
+                _type : "view",
+                _id: "main-view" ,
+                style: "width:100%;margin: 0;padding:0;display:none",
+                "class":"container-fluid xyz-in",
+                animation:"fade",
+                spells: [
+                    {
+                        _id:"air-cursor",
+                        _type:"air-cursor",
+                        class:"spell-air-cursor",
+                        _source:"air",
+                        src:"public/images/pai/pai-bot.png",
+                        _follow:10,
+                        _html_tag:"div",
+                        style:"width:60px;height:60px;border: 1px solid white;color:white;z-index:10;border-radius:50%"
+                    },
+                    {
+                        _id:"air-cursor-2",
+                        _type:"air-cursor",
+                        class:"spell-air-cursor",
+                        _source:"air",
+                        src:"public/images/pai/pai-bot.png",
+                        _follow:9,
+                        _html_tag:"div",
+                        style:"width:60px;height:60px;border: 1px solid green;color:red;z-index:10;border-radius:50%"
+                    },
+                    {
+                        _id:"air-cursor-3",
+                        _type:"air-cursor",
+                        class:"spell-air-cursor",
+                        _source:"air",
+                        _follow:0,
+                        _html_tag:"div",
+                        style:"width:20px;height:20px;border: 5px solid red;color:red;z-index:10;border-radius:50%"
+                    },
+                    {
+                        _id:"air-cursor-4",
+                        _type:"air-cursor",
+                        class:"spell-air-cursor",
+                        _source:"air",
+                        _follow:1,
+                        _html_tag:"div",
+                        style:"width:20px;height:20px;border: 5px solid red;color:red;z-index:10;border-radius:50%"
+                    },
+                    {
+                        _id:"air-cursor-5",
+                        _type:"air-cursor",
+                        class:"spell-air-cursor",
+                        _source:"air",
+                        _follow:2,
+                        _html_tag:"div",
+                        style:"width:20px;height:20px;border: 5px solid red;color:red;z-index:10;border-radius:50%"
+                    },
+                    {   
+                        _type : "label",
+                        text:"A I M E",
+                        class:"xyz-in page-title",
+                        "animation":"fade ease-in-back",
+                        style: "margin-top:5%;"
+                    }, 
+                    {
+                        _type : "label",
+                        text:"Personal Artificial Intelligence",
+                        class:"xyz-in page-subtitle",
+                        "animation":"fade ease-in-back",
+                        style: "margin-top:5%;"
+                    }, 
+                    {
+                        _type : "air-button",
+                        class:"air-hover xyz-in position-absolute top-50 start-50 translate-middle",
+                        "animation":"fade ease-in-back",
+                        style: "width:200px;height:200px;margin-top:00px;border:solid 1px white;border-radius:50%",
+                        onclick:"console.log('AIR CLICK')"
+                    }
+
+                ]
+            },
+            "spell-editor": {
+                _type : "view",
+                _id: "spell-editor" ,
+                style: "width:100%;margin: 0;padding:0;display:none",
+                "class":"container-fluid xyz-in",
+                animation:"fade",
+                spells: [
+                {
+                        _id:"spell-editor-grid" ,
+                        _type:"grid",
+                        rows: [{
+                                cols: [
+                                    {
+                                        _id:"spell-editor-toolbox",
+                                        class:"col-sm-2",
+                                        spells: [
+                                            {
+                                                _type:"view",
+                                                _id:"spell-editor-toolbox-view",
+                                                style:"height:100vh;border-right:1px white solid;padding-top:10px", 
+                                                spells: [
+                                                    {
+                                                        _type:"button",
+                                                        text:"View",
+                                                        onclick:"player_add_object('view')"
+                                                    }
+                                                ]                                             
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        spells: [
+                                            {
+                                                _id:"spell-editor-code",
+                                                _type:"grid",
+                                                style:"width:100%;height:50vh;border:1px solid white;padding:10px",
+                                                rows:[
+                                                    {
+                                                        _id:"row_1",
+                                                        style:"height:100%",
+                                                        cols:[
+                                                            {
+                                                                _id:"code-text-col",
+                                                                spells:[
+                                                                    {
+                                                                        _id:"spell-code-text",
+                                                                        style:"height:80%",
+                                                                        _type:"textarea"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                _id:"code-text-compile",
+                                                                class:"col-sm-2",
+                                                                spells:[
+                                                                    {
+                                                                        _id:"spell-code-button",
+                                                                        _type:"button",
+                                                                        text:"Run",
+                                                                        onclick:"run_spell()"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                _id:"spell-editor-player",
+                                                _type:"view",
+                                                style:"width:100%;height:50vh;border:1px solid green;",
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        defaults:{
+            view:"main-view"
+        }
+        
+    }
+
+    let pai_web_bot = null;
+    $(document).ready( function () {
+
+        Spell.init().then(() => {
+            Spell.load_app(spell_app)
+            start_pai_web_bot()
+            //let player = new SpellPlayer()
+            //player.load();
+        });
+        
+    });
+
+
+
+    function start_pai_web_bot() {
+        
+        const pron = {
+            "-": " ",
+            "pai" : "pi"
+        }
+        
+        pai_web_bot = new PAIWebBot();
+        pai_web_bot.load_speech_abilities("Samantha");
+        pai_web_bot.speech.set_pron(pron);
+        //pai_web_bot.speech.set_voice_by_name();
+        const wormhole_url = "ws://" + window.location.host + window.location.pathname;
+        pai_web_bot.open_wormhole(wormhole_url)
+        
+    }
+
+
+    
+
+    function player_add_object(object_name) {
+        
+
+        let vdata = {
+            _id:"new-view",
+            style:"width:100px;height:100px;background-color:red"
+        }
+        let txt = Spell.om.get_object("spell-code-text")
+        txt.set_text(JSON.stringify(vdata))
+    }
+
+    function run_spell() {
+        let text = Spell.om.get_object("spell-code-text").get_text()
+        try {
+            let so = JSON.parse(text)
+            let player = Spell.om.get_object("spell-editor-player")
+            if(player) {
+                player.append(new SpellView(so))
+            }
+        }
+        catch (e) {}
+        
+        
+    }
+
+</script>
+</html>

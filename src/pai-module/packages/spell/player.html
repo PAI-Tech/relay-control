@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spell player</title>
+    <script src="../../public/js/jquery-3.5.0.min.js"></script>
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAuCAMAAACvSe/GAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QjRBQkU2NUVGQjAxMUVBQkU5MEFCQTY2OUU3MkI2QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QjRBQkU2NkVGQjAxMUVBQkU5MEFCQTY2OUU3MkI2QSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdCNEFCRTYzRUZCMDExRUFCRTkwQUJBNjY5RTcyQjZBIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdCNEFCRTY0RUZCMDExRUFCRTkwQUJBNjY5RTcyQjZBIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Fowc5gAAAbNQTFRF6+vw9/f5Kipiy8vZwsLSHh5aKytj/Pz9aWmRTEx7vb3OyMjX0NDcAAA9AAA8/f3+w8PTSEh4zc3aICBburrMvLzNxsbVJSVTLy9mPT1qBQVImpqvOjpuFBRS+fn61NTdzc3b1tbjGhpW8fH1GxtXEhJE9PT0xcXTq6u8AwM18fH3aWmQrq7EAAAveXmdJCRe0dHdJSVGDg5Ot7fKs7O9jY2k5OTr9vb57u7yrKy/ZWWKxsbR29vlJydT6eno4+PqycnU6enub2+Wzs7aCgo4AAAy2dnf9vb8hISkdXWcAAAsAAAzAABCs7PDAAAtWlqFT09+GBg76+vv19fk+Pj66Ojn3t7nHR1Re3ueT091nJyvCAhJwMDPQkJ0QEByGxtPu7vNdHScyMjWKytXs7O8gYGbKiphn5+1AAAdCAg/09PfubnL0tLd5+ftycnWAABDJydS39/nJCRQHBxXRERxzc3c8vL5Bwc44eHoBwc59vb4jIyqyMjZ9fX6dnaRiIin6OjxLCxkrKzBb2+VxcXU0dHbbGyIAAA2BwdJERE/WlqGT099pqa9Jydazs7W/////v7+Y0j7FQAAAWdJREFUeNrs1lVzwkAUBeDUoBagUKDu7u7u7u7u7u5uJz+5SxuGQCedzfLUKefxzubbrCXLCYIA5pCHuS+g0I0lVgCVC+/uDFFlnxLCAhhHx3SeynMXPCECgUFsM9AcIAK+KrVlNEoDbx8X4AJ+BcST5lgCLYCBvEhHAbVzKfY1eQBczPPhsF1r4K0uPnmRDgBO1s7vl1+kArDd0DiSPgUKANpOExnuVUiZrQjdpWUKalR2qBzQ9zQD0uV1mgQYCidtkWugAhCXQXo72+QkgL7tgNS6wmgAATct+b1J9beSxsDrcXv0RasedKtQbC7fmXdYhQfz1mwi7TIC/T92DbQV9BtJbif+4dMIsAG2P0ARG7D+4U+StR86uQoGAEhd0vA8r3nsKFGD6Q0KSv1ITFWxzs+B67P+HwDWO9K09Y5kzNmI8lCelb1xETjaHTR4KU9md9M3ICCih2NIdYLtquvkXdmpfAowACwwPsqEEiV3AAAAAElFTkSuQmCC" rel="icon" type="image/x-icon" />
+    <script src="spell-object.js"></script>
+    <script src="html-spells.js"></script>
+    <style>
+
+    </style>
+</head>
+<body style="margin: 0;padding: 0;background-color: #4f4f4f">
+
+</body>
+<script language="JavaScript">
+
+
+    let pai_desktop_data = {
+        _id: "pai-desktop",
+        _type: "view",
+        name: "pai-desktop",
+        style: "position:absolute;left:0;top:0;width:100%;height:100%;background-color:black"
+    };
+
+    let frame_window = {
+        _type : "view",
+        _id: "pai-video-frame",
+        name: "pai-video-frame",
+        text:"&nbsp;",
+        style: "background-color:white;position:absolute;left:20%;top:10%;width:640px;height:480px;"
+    };
+
+
+    let tool_box_data = {
+        _type : "view",
+        _id: "tool-box",
+        name: "tool-box",
+        style: "position:absolute;left:0;top:0;width:10%;height:100%;border-right:white solid 1px;display:flex;flex-direction:column"
+    }
+
+    let pai_desktop = new SPELL_VIEW(pai_desktop_data);
+    let frame = new SPELL_VIEW(frame_window);
+    let tool_box = new SPELL_VIEW(tool_box_data);
+
+    let tool_box_buttons = ["View","Label","Button","Text","Window"];
+
+    tool_box_buttons.forEach(button =>  add_tool_box_button(button,button.toLowerCase()) );
+
+    pai_desktop.append(frame);
+    pai_desktop.append(tool_box);
+
+    jQuery( document ).ready(function($) {
+        $("body").append(pai_desktop.get_html());
+    });
+
+
+
+
+    function add_tool_box_button(text,type)
+    {
+        let pid = SPELL_OBJECT.get_spell_uid();
+        let test_button = {
+            _type : type,
+            _id: "test-" + type + "-" + pid,
+            name: "test-" + type + "-" + pid,
+            "text" : text,
+            style: "background-color:white;margin:10% 0 0 10% ;width:80%;height:30px;",
+            onclick: "add_object('" + type +  "')"
+        }
+
+        let btn1 = new SPELL_BUTTON(test_button);
+        tool_box.append(btn1);
+    }
+
+
+
+
+
+
+    function add_window()
+    {
+        let test_window = {
+            _type : "window",
+            _id: "test-win",
+            name: "test-win",
+            _caption: "window -1 ",
+            style: "width:480px;height:480px;background-color:gray;border-radius:5px",
+        }
+
+
+        let win1 = new SPELL_WINDOW(test_window);
+        frame.append(win1);
+    }
+
+
+    let tool_box_objects = {
+        "view" :   {
+            "js-class" :SPELL_VIEW,
+            "defaults": {
+              _type : "view",
+              _id: "pai-view-" ,
+              name: "pai-view-",
+              text: "new view",
+              style: "background-color:white;width:100px;margin:10px 0 0 10px; height:100px;border:1px solid black",
+              onclick: ""
+            }
+        },
+        "label" : {
+            "js-class" : SPELL_LABEL,
+            "defaults": {
+                _type : "label",
+                _id: "test-label",
+                name: "test-label",
+                text:"label 1",
+                style: "background-color:red;margin:10% 0 0 10% ;width:80%;height:30px;",
+            }
+        }
+        ,
+        "button" : {
+            "js-class" : SPELL_BUTTON,
+            "defaults": {
+                _type : "button",
+                _id: "test-btn",
+                name: "test-btn",
+                text:"button 1",
+                value:"button 1",
+                style: "background-color:white;margin:10% 0 0 10% ;width:80%;height:30px;",
+                onclick: "alert(this.id)"
+            }
+        },
+        "text" : {
+            "js-class" : SPELL_TEXT_FIELD,
+            "defaults": {
+                _type : "text",
+                _id: "test-txt",
+                name: "test-txt",
+                value:"text 1",
+                placeholder:"write your text here",
+                style: "background-color:white;margin:10% 0 0 10% ;width:80%;height:30px;",
+            }
+        },
+        "window" : {
+            "js-class" : SPELL_WINDOW,
+            "defaults": {
+                _type : "window",
+                _id: "test-win",
+                name: "test-win",
+                _caption: "window -1 ",
+                style: "width:480px;height:480px;background-color:gray;border-radius:5px",
+            }
+        }
+    };
+
+
+    function add_object(obj_type)
+    {
+        if(tool_box_objects.hasOwnProperty(obj_type))
+        {
+            let pid = SPELL_OBJECT.get_spell_uid();
+            let class_name = tool_box_objects[obj_type]["js-class"];
+            let defs = tool_box_objects[obj_type]["defaults"];
+            if(defs.hasOwnProperty("_id"))
+            {
+                defs["_id"] += pid;
+            }
+            if(defs.hasOwnProperty("name"))
+            {
+                defs["name"] += pid;
+            }
+            //console.log(" creating " + class_name);
+            //console.log(" with defaults  " + JSON.stringify(defs));
+            let vo = new class_name(defs);
+
+            frame.append(vo);
+        }
+
+    }
+
+
+
+    //
+    // let pai_bot_data = {
+    //     _type : "image",
+    //     _id: "pai-bot",
+    //     name: "pai-bot",
+    //     "src":"../../public/images/pai/pai-bot.png",
+    //     style: "background-color:red;position:absolute;right:10%;bottom:10%;width:80px;border-radius:0%"
+    // };
+    //
+    // let bot_console_output_data = {
+    //     _type : "view",
+    //     _id: "pai-bot-console",
+    //     name: "pai-bot-console",
+    //     text:"Hey :)",
+    //     style: "background-color:white;position:absolute;padding-left:10px;left:0;top:10%;width:40%;border-radius:0%"
+    // };
+    //
+    //
+    //
+    //
+    // let bg_video_data = {
+    //     _type : "video",
+    //     _id: "pai-video-player",
+    //     name:"pai-video-player",
+    //     "src":"https://pai-cdn.pai-net.org/pai-cdn/get-file?cdn-key=29ed8209-acf4-45d4-95a3-1067f3d07ea7",
+    //     text:"Hey :)",
+    //     "playsinline":true,
+    //     "autoplay":"true",
+    //     "muted":"true",
+    //     style: "position:absolute;padding0;left:0;top:0%;width:100%;height:100%;z-index:0"
+    // };
+    // // <video id='` + this.id +`' src="` + this.video_src + `" class="pai-video-player-video" playsinline="true" webkit-playsinline="true" ` + autoplay_txt + loop_txt + controls_txt + muted_txt  + ` style="object-fit:` + this.video_fill + `" type="application/x-mpegURL"></video>
+
+
+
+
+</script>
+</html>

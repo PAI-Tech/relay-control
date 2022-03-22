@@ -1,0 +1,15 @@
+Spell 2.0 
+-----------
+
+
+-- web socket to get information from server
+-- pai-ddb - web version + sync
+-- form handler
+-- spell interpreter
+-- spell commands
+-- frame timeline commands (delay)
+-- scene handler
+-- web-gl support
+-- voice commands
+-- text to speech engine
+-- ai-engine

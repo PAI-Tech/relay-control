@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--favicon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <script src="../../../../packages/spell/spell.js"></script>
+    <script src="../../../../packages/spell/pai-web-bot.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../css/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../css/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../css/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../css/favicon/site.webmanifest">
+    <link rel="mask-icon" href="../../css/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'RocknRoll One', sans-serif;
+        }
+
+        #playBtn {
+            position: absolute;
+            width: 180px;
+            height: 100px;
+            font-family: 'RocknRoll One', sans-serif;
+            font-size: 40px;
+            bottom: 100px;
+            border-radius: 20px;
+            background-color: blue;
+            color: white;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #instructions {
+            position: absolute;
+            bottom: 250px;
+            font-family: 'RocknRoll One', sans-serif;
+            font-size: 30px;
+            color: darkblue;
+            width: 300px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 20px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        #gameover {
+            display: none;
+            position: absolute;
+            bottom: 250px;
+            font-family: 'RocknRoll One', sans-serif;
+            font-size: 50px;
+            color: darkblue;
+            width: 300px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 20px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        #info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-family: 'RocknRoll One', sans-serif;
+            font-size: 50px;
+        }
+
+        #info img {
+            padding-top: 20px;
+        }
+
+        #life {
+            position: absolute;
+            left: 20px;
+        }
+
+        #score-panel {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            float: right;
+        }
+
+        #lives {
+            display: inline;
+            position: relative;
+            top: -15px;
+        }
+
+        #score {
+            display: inline;
+            position: relative;
+            top: -15px;
+        }
+
+        #fuel-panel {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            float: right;
+        }
+
+        #fuel {
+            display: inline;
+            position: relative;
+            top: 0px;
+        }
+
+        #fuel-panel img,
+        #shield-panel img,
+        #pressure-panel img {
+            width: 40px;
+            /* vertical-align: top; */
+        }
+
+        #shield-panel {
+            position: absolute;
+            top: 200px;
+            right: 20px;
+            float: right;
+        }
+
+        #shield {
+            display: inline;
+            position: relative;
+            top: 0px;
+        }
+
+        #pressure-panel {
+            position: absolute;
+            top: 300px;
+            right: 20px;
+            float: right;
+        }
+
+        #pressure {
+            display: inline;
+            position: relative;
+            top: 0px;
+        }
+    </style>
+
+    <title>משחק מטוס משאף</title>
+</head>
+
+<body>
+    <p id="instructions">.אספו כוכבים <br>.התחמקו מפצצות <br>בינתיים מקש רווח יעלה אותנו למעלה עד שנחבר את המשאף</p>
+    <div id="info">
+        <div id="life">
+            <img src="../../assets/plane/plane-icon.png" />
+            <div id="lives">3</div>
+        </div>
+        <div id="score-panel">
+            <div id="score">0</div><img src="../../assets/plane/star-icon.png" />
+        </div>
+        <div id="fuel-panel">
+            <div id="fuel">100</div><img src="../../assets/fuel.png" />
+        </div>
+        <div id="shield-panel">
+            <div id="shield">0</div><img src="../../assets/shield.png" />
+        </div>
+        <div id="pressure-panel">
+            <div id="pressure">0</div><img src="../../assets/pressure.png" />
+        </div>
+    </div>
+    <p id="gameover">!!בקטנה.. נסו שוב</p>
+    <button id="playBtn">!למשחק</button>
+    <script>
+       
+        // let se = new SpellEvent('sp-sensor', {detail:{"sensor-data": 1000}});
+        // SpellEventManager.fire(se);
+        // console.log(se + "Event Fired");
+        
+        
+        function start_pai_web_bot() {
+        
+            const pron = {
+                "-": " ",
+                "pai" : "pi"
+            }
+            console.log("starting bot")
+            pai_web_bot = new PAIWebBot();
+            pai_web_bot.load_speech_abilities("Samantha");
+            pai_web_bot.speech.set_pron(pron);
+            //pai_web_bot.speech.set_voice_by_name();
+            const wormhole_url = "ws://" + window.location.host + window.location.pathname;
+            pai_web_bot.open_wormhole(wormhole_url)
+            
+        }
+
+        $(document).ready(() => {
+            start_pai_web_bot()
+        })
+        
+
+    </script> 
+    <script type="module">
+        import { Game } from './Game.js';
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const game = new Game();
+            window.game = game;
+        });
+    </script>
+</body>
+
+</html>

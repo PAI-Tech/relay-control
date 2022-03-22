@@ -1,0 +1,70 @@
+SPELL
+---------
+
+SPELL is a language for creating human user interface for any platform and device in the BOTS echo system.
+
+SPELL is being used by programmers end bots to interact with the (human) user by any media available.
+
+SPELL is a subset of PAI-CODE intelligent interface programmable protocol.
+
+
+SPELL Player
+---------------
+
+This module plays SPELL programs:
+
+
+    -----------------       ----------------       --------------------
+    | SPELL-PROGRAM |  -->  | SPELL PLAYER |  ->   | Device Interface |
+    -----------------       ----------------       --------------------
+
+
+SPELL-PROGRAM
+--------------
+
+A SPELL Program is a set of commands and data to activate user interface components and elements using time-line.
+The program time-line is based like a video time line which is Frame based time-line, the FPS will be set by the program or the device limitations.
+
+
+
+spell: {
+    settings: {
+        fps:30,
+        width:1080,
+        height:720
+    },
+    1: "spell-player show version"
+}
+
+
+
+SPELL-OBJECT
+-------------
+
+This is the base object for every spell object and interface.
+
+A new SPELL Interface object needs to extend SPELL-OBJECT and to provide extended functionality:
+
+    ----------------
+    | SPELL-OBJECT |
+    ----------------
+           ||
+           \/
+    ----------------
+    |  SPELL-VIEW  |
+    ----------------
+
+SPELL comes with builtin components:
+
+    SPELL-OBJECT
+        |
+        +-> SPELL-VIEW
+        |
+        +-> SPELL-LABEL
+        |
+        +-> SPELL-BUTTON
+        |
+        +-> SPELL-IMAGE
+        |
+        +-> SPELL-TEXT-FIELD
+
