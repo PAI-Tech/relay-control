@@ -79,4 +79,17 @@ The Raspberry needs to be turned off before any connection of wires.
 
 ![get-file](https://user-images.githubusercontent.com/37834935/163721105-124bfa9d-94e5-49f9-9adb-42669308bade.jpg)
 
+## For more information
 
++ Documentation is available at [PAI-TECH Knowledge-base](https://blog.pai-tech.org/knowledge-base).
++ Ask for help on the
+[Email](mailto:community@pai-tech.org).
+
+
+
+## License
+
+PAI-BOT-JS Module Template is copyright (c) 2018-present PAI-TECH ARTIFICIAL INTELLIGENCE  <contact@pai-tech.org>.
+
+PAI-BOT-JS Module Template is free software, licensed under the GNU General Public License, Version 3.0. See the
+`LICENSE` file for more details.
